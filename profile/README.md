@@ -21,6 +21,21 @@
 
 ---
 
+## Try it in 5 minutes — agentic reference demo
+
+The fastest way to see Keel in action — a multi-step research agent with multi-model reliability + distributed OTel tracing, all in **~80 lines of agent code**:
+
+```bash
+git clone https://github.com/keelplatform/keel-examples
+cd keel-examples/agentic-research
+docker compose up                              # brings up Jaeger + the agent
+open http://localhost:16686                    # see the trace tree light up
+```
+
+Within seconds you're watching real failover in Jaeger: a throttled primary 429s deferring to a healthy fallback *without* tripping its circuit, retries on transient errors, the full agent trace tree. **No API keys required.**
+
+→ **[github.com/keelplatform/keel-examples](https://github.com/keelplatform/keel-examples)**
+
 ## Why Keel
 
 Building on multiple LLM providers means hand-writing the same fragile plumbing — retries, failover, rate-limit handling, circuit breaking — and usually getting it subtly wrong. *(The classic bug: treating a `429` as a failure and circuit-breaking a model that was merely throttled.)*
